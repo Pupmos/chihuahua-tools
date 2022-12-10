@@ -23,8 +23,8 @@ export const Layout = ({ children, metadata = {} }: LayoutProps) => {
       <DefaultAppSeo />
 
       {/* plumbus confetti */}
-      <div className="fixed inset-0 -z-10 pointer-events-none juno-gradient-bg">
-        <img alt="plumbus confetti" className="fixed top-0 right-0 h-[calc(100vh+180px)]" src="/confetti.svg" />
+      <div className="fixed inset-0 -z-10 bg-plumbus-70 pointer-events-none juno-gradient-bg_">
+        {/* <img alt="plumbus confetti" className="fixed top-0 right-0 h-[calc(100vh+180px)]" src="/confetti.svg" /> */}
       </div>
 
       {/* actual layout container */}
@@ -47,9 +47,9 @@ export const Layout = ({ children, metadata = {} }: LayoutProps) => {
         <FaDesktop size={48} />
         <h1 className="text-2xl font-bold">Unsupported Viewport</h1>
         <p>
-          JunoTools is best viewed on the big screen.
+          {process.env.NEXT_PUBLIC_WEBSITE_NAME} is best viewed on the big screen.
           <br />
-          Please open JunoTools on your tablet or desktop browser.
+          Please open {process.env.NEXT_PUBLIC_WEBSITE_NAME} on your tablet or desktop browser.
         </p>
       </div>
     </div>

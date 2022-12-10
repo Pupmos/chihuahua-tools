@@ -6,7 +6,7 @@ import { FormControl } from 'components/FormControl'
 import { Input } from 'components/Input'
 import { JsonPreview } from 'components/JsonPreview'
 import { TextArea } from 'components/TextArea'
-import { getConfig } from 'config'
+import { getConfig, getPlaceholderAddress } from 'config'
 import { useWallet } from 'contexts/wallet'
 import type { NextPage } from 'next'
 import { useRouter } from 'next/router'
@@ -184,7 +184,7 @@ Verify tweet using:`,
           id="signer-address"
           name="signer-address"
           onChange={(e) => setSignerAddress(e.target.value)}
-          placeholder="juno1234567890abcdefghijklmnopqrstuvwxyz..."
+          placeholder={getPlaceholderAddress()}
           type="text"
           value={signerAddress}
         />

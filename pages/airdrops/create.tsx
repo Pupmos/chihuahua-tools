@@ -12,7 +12,7 @@ import { Input } from 'components/Input'
 import { InputDateTime } from 'components/InputDateTime'
 import { JsonPreview } from 'components/JsonPreview'
 import { Radio } from 'components/Radio'
-import { getConfig } from 'config'
+import { getConfig, getPlaceholderAddress } from 'config'
 import { useContracts } from 'contexts/contracts'
 import { useWallet } from 'contexts/wallet'
 import type { NextPage } from 'next'
@@ -373,7 +373,7 @@ const CreateAirdropPage: NextPage = () => {
                     id="airdrop-cw20"
                     name="cw20"
                     onChange={(e) => setCW20TokenAddress(e.target.value)}
-                    placeholder="juno1234567890abcdefghijklmnopqrstuvwxyz..."
+                    placeholder={getPlaceholderAddress()}
                     type="text"
                     value={cw20TokenAddress as string}
                   />

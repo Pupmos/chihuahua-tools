@@ -74,7 +74,7 @@ const UploadContract: NextPage = () => {
     <section className="py-6 px-12 space-y-4">
       <NextSeo title="Upload Contract" />
       <ContractPageHeader
-        description="Here you can upload a contract on Juno Network."
+        description={`Here you can upload a contract on ${process.env.NEXT_PUBLIC_NETWORK_NAME}.`}
         link=""
         title="Upload Contract"
       />

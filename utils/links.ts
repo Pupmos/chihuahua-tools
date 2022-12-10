@@ -25,7 +25,7 @@ export const footerLinks = [
   { text: 'Block Explorer', href: links.Explorer },
   { text: 'Documentation', href: links.Docs },
   { text: 'Submit an issue', href: `${links.GitHub}/issues/new/choose` },
-  { text: 'Powered by Juno', href: links.Juno },
+  { text: `Powered by ${process.env.NEXT_PUBLIC_NETWORK_NAME}`, href: links.Juno },
 ]
 
 export const legacyNavbarLinks = [

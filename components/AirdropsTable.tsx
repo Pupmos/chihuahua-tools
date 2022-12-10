@@ -102,7 +102,7 @@ export const AirdropsTable = (props: AirdropsTableProps) => {
                     <img
                       alt={airdrop.name}
                       className="overflow-hidden w-8 h-8 bg-plumbus rounded-full"
-                      src={airdrop.logo?.url ?? '/juno_logo.png'}
+                      src={airdrop.logo?.url ?? '/network_logo.png'}
                     />
                   </div>
                   <div>

@@ -308,7 +308,7 @@ const ClaimAirdropPage: NextPage = () => {
           <div className="flex items-center space-x-2">
             <h3 className="text-2xl font-bold">{name}</h3>
             <div className="flex-grow" />
-            <img alt="juno" className="w-6 h-6 rounded-full" src="/juno_logo.png" />
+            <img alt="juno" className="w-6 h-6 rounded-full" src="/network_logo.png" />
             <span className="font-bold">
               {convertDenomToReadable(amount, cw20TokenInfo?.decimals)} {cw20TokenInfo?.symbol}
             </span>

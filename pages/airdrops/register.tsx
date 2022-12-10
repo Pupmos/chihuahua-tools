@@ -8,6 +8,7 @@ import { Conditional } from 'components/Conditional'
 import { FormControl } from 'components/FormControl'
 import { Input } from 'components/Input'
 import { JsonPreview } from 'components/JsonPreview'
+import { getPlaceholderAddress } from 'config/network'
 import { useContracts } from 'contexts/contracts'
 import { useWallet } from 'contexts/wallet'
 import { useInterval } from 'hooks/useInterval'
@@ -161,7 +162,7 @@ const RegisterAirdropPage: NextPage = () => {
         <div className="flex justify-center">
           <AirdropsStepper step={3} />
         </div>
-        <p>Now that the contract is deployed, it can be registered to the JunoTools</p>
+        <p>Now that the contract is deployed, it can be registered to the {process.env.NEXT_PUBLIC_WEBSITE_NAME}</p>
       </div>
 
       <hr className="border-white/20" />
@@ -176,7 +177,7 @@ const RegisterAirdropPage: NextPage = () => {
             id="airdrop-cw20"
             name="cw20"
             onChange={(e) => contractAddressOnChange(e.target.value)}
-            placeholder="juno1234567890abcdefghijklmnopqrstuvwxyz..."
+            placeholder={getPlaceholderAddress()}
             type="text"
             value={contractAddress}
           />

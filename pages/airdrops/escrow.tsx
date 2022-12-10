@@ -9,6 +9,7 @@ import { Conditional } from 'components/Conditional'
 import { FormControl } from 'components/FormControl'
 import { Input } from 'components/Input'
 import { JsonPreview } from 'components/JsonPreview'
+import { getPlaceholderAddress } from 'config/network'
 import { useContracts } from 'contexts/contracts'
 import { useWallet } from 'contexts/wallet'
 import { useInterval } from 'hooks/useInterval'
@@ -159,7 +160,7 @@ const EscrowAirdropPage: NextPage = () => {
             id="airdrop-cw20"
             name="cw20"
             onChange={(e) => contractAddressOnChange(e.target.value)}
-            placeholder="juno1234567890abcdefghijklmnopqrstuvwxyz..."
+            placeholder={getPlaceholderAddress()}
             type="text"
             value={contractAddress}
           />

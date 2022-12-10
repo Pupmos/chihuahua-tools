@@ -39,7 +39,31 @@ export const uniTestnetConfig: AppConfig = {
   },
 }
 
+export const chihuahuaConfig: AppConfig = {
+  chainId: 'chihuahua-1',
+  chainName: 'Chihuahua Chain',
+  addressPrefix: 'chihuahua',
+  rpcUrl: 'https://rpc.cosmos.directory/chihuahua',
+  httpUrl: 'https://api.cosmos.directory/chihuahua',
+  faucetUrl: 'https://faucet.uni.juno.deuslabs.fi',
+  feeToken: 'uhuahua',
+  stakingToken: 'uhuahua',
+  coinMap: {
+    uhuahua: { denom: 'HUAHUA', fractionalDigits: 6 },
+  },
+  gasPrice: 0.025,
+  fees: {
+    upload: 1500000,
+    init: 500000,
+    exec: 200000,
+  },
+}
+
 export const getConfig = (network: string): AppConfig => {
   if (network === 'mainnet') return mainnetConfig
-  return uniTestnetConfig
+  return chihuahuaConfig
+}
+
+export const getPlaceholderAddress = (network: string = process.env.NEXT_PUBLIC_NETWORK): string => {
+  return `${getConfig(network).addressPrefix}1234567890abcdefghijklmnopqrstuvwxyz...`
 }

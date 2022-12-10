@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        juno: { DEFAULT: '#CA706D' },
+        juno: { DEFAULT: 'rgb(231 161 73)' },
         dark: { DEFAULT: '#06090B' },
         gray: { DEFAULT: '#F3F6F8' },
         'dark-gray': { DEFAULT: '#191D20' },
@@ -16,22 +16,22 @@ module.exports = {
 
         neutral: colors.neutral,
         plumbus: {
-          DEFAULT: '#F0827D',
-          light: '#FF9D9E',
-          matte: '#CA9991',
-          dark: '#6E5451',
-          10: '#FFF0ED',
-          20: '#FACBC8',
-          30: '#F5A7A2',
-          40: '#F0827D',
-          50: '#D9726F',
-          60: '#C26261',
-          70: '#AB5152',
-          80: '#944144',
-          90: '#7D3136',
-          100: '#662027',
-          110: '#4F1019',
-          120: '#38000B',
+          DEFAULT: 'hsl(33deg 77% 60%)',
+          light: 'hsl(33deg 77% 60%)',
+          matte: 'hsl(33deg 77% 60%)',
+          dark: 'hsl(33deg 77% 60%)',
+          10: 'hsl(33deg 77% 100%)',
+          20: 'hsl(33deg 77% 95%)',
+          30: 'hsl(33deg 77% 90%)',
+          40: 'hsl(33deg 77% 80%)',
+          50: 'hsl(33deg 77% 70%)',
+          60: 'hsl(33deg 77% 60%)',
+          70: 'hsl(33deg 68% 51%)',
+          80: 'hsl(33deg 57% 40%)',
+          90: 'hsl(33deg 47% 30%)',
+          100: 'hsl(33deg 37% 20%)',
+          110: 'hsl(33deg 27% 15%)',
+          120: 'hsl(33deg 17% 10%)',
         },
         twitter: { DEFAULT: '#1DA1F2' },
       },
@@ -54,10 +54,10 @@ module.exports = {
     plugin(({ addUtilities }) => {
       addUtilities({
         '.juno-gradient-bg': {
-          background: `linear-gradient(63.38deg, rgba(29, 24, 24, 0.25) 45.06%, rgba(240, 130, 125, 0.25) 100.6%), #252020`,
+          background: `linear-gradient(63.38deg, rgba(231, 161, 73, 0.25) 45.06%, rgba(231, 161, 73, 0.25) 100.6%), rgba(231, 161, 73, 0.25)`,
         },
         '.juno-gradient-brand': {
-          background: `linear-gradient(102.33deg, #F9BCB2 10.96%, #FFFFFF 93.51%)`,
+          background: `linear-gradient(102.33deg, rgb(231 161 73) 10.96%, #FFFFFF 93.51%)`,
         },
       })
     }),

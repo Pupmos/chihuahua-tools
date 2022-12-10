@@ -10,6 +10,7 @@ import { Input } from 'components/Input'
 import { InputDateTime } from 'components/InputDateTime'
 import { JsonPreview } from 'components/JsonPreview'
 import { Stats } from 'components/Stats'
+import { getPlaceholderAddress } from 'config'
 import { useContracts } from 'contexts/contracts'
 import { useWallet } from 'contexts/wallet'
 import type { NextPage } from 'next'
@@ -407,7 +408,7 @@ const ManageAirdropPage: NextPage = () => {
             id="airdrop-cw20"
             name="cw20"
             onChange={(e) => contractAddressOnChange(e.target.value)}
-            placeholder="juno1234567890abcdefghijklmnopqrstuvwxyz..."
+            placeholder={getPlaceholderAddress()}
             type="text"
             value={contractAddress}
           />

@@ -1,4 +1,4 @@
-import faviconsJson from './favicons.json'
+import { favicons as faviconsJson } from './favicons'
 
 export const meta = {
   name: faviconsJson.appName,

@@ -11,12 +11,18 @@ export const SidebarLayout = ({ children }: SidebarLayoutProps) => {
   const { isOpen } = useSidebarStore()
 
   return (
-    <div className={clsx(isOpen ? 'min-w-[250px] max-w-[250px]' : 'min-w-[20px] max-w-[20px]', 'relative z-10')}>
+    <div
+      className={clsx(
+        isOpen ? 'min-w-[250px] max-w-[250px]' : 'min-w-[20px] max-w-[20px]',
+        'relative z-10',
+        'text-plumbus-70',
+      )}
+    >
       {/* fixed component */}
       <div
         className={clsx(
           'overflow-auto fixed top-0 left-0 min-w-[250px] max-w-[250px] no-scrollbar',
-          'bg-black/50 border-r-[1px] border-r-plumbus-light',
+          'bg-gray-50 border-r-[1px] border-r-plumbus-light bg-black/50_',
           { 'translate-x-[-230px]': !isOpen },
         )}
       >

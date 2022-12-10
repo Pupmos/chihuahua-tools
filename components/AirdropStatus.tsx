@@ -3,6 +3,7 @@ import { Anchor } from 'components/Anchor'
 import { Conditional } from 'components/Conditional'
 import { FormControl } from 'components/FormControl'
 import { StackedList } from 'components/StackedList'
+import { getConfig } from 'config/network'
 import type { AirdropProps } from 'utils/constants'
 import { ESCROW_AMOUNT } from 'utils/constants'
 
@@ -40,7 +41,9 @@ export const AirdropStatus = (props: AirdropStatusProps) => {
             )}
           </StackedList.Item>
 
-          <StackedList.Item name="Escrow Deposit">{ESCROW_AMOUNT} juno</StackedList.Item>
+          <StackedList.Item name="Escrow Deposit">
+            {ESCROW_AMOUNT} {getConfig(process.env.NEXT_PUBLIC_NETWORK).stakingToken}
+          </StackedList.Item>
         </Conditional>
 
         <Conditional test={page === 'register' || page === 'fund' || page === 'manage'}>

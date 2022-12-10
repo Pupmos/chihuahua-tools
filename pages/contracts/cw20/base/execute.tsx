@@ -155,9 +155,9 @@ const CW20ExecutePage: NextPage = () => {
     <section className="py-6 px-12 space-y-4">
       <NextSeo title="Execute CW20 Token" />
       <ContractPageHeader
-        description="CW20 Base is a specification for fungible tokens based on CosmWasm."
+        description="CW20 is a specification for fungible tokens based on CosmWasm."
         link={links['Docs CW20 Base']}
-        title="CW20 Base Contract"
+        title="CW20 Token"
       />
       <LinkTabs activeIndex={2} data={cw20LinkTabs} />
 

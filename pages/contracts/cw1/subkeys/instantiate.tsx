@@ -58,7 +58,12 @@ const CW1SubkeysInstantiatePage: NextPage = () => {
         mutable: mutableType === 'true',
       }
       return toast.promise(
-        contract.instantiate(CW1_SUBKEYS_CODE_ID, msg, 'JunoTools CW1 Subkeys Contract', wallet.address),
+        contract.instantiate(
+          CW1_SUBKEYS_CODE_ID,
+          msg,
+          `${process.env.NEXT_PUBLIC_WEBSITE_NAME} CW1 Subkeys Contract`,
+          wallet.address,
+        ),
         {
           loading: 'Instantiating contract...',
           error: 'Instantiation failed!',

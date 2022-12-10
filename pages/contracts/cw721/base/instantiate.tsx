@@ -8,6 +8,7 @@ import { useInputState } from 'components/forms/FormInput.hooks'
 import { JsonPreview } from 'components/JsonPreview'
 import { LinkTabs } from 'components/LinkTabs'
 import { cw721BaseLinkTabs } from 'components/LinkTabs.data'
+import { getPlaceholderAddress } from 'config'
 import { useContracts } from 'contexts/contracts'
 import { useWallet } from 'contexts/wallet'
 import type { InstantiateResponse } from 'contracts/cw721/base'
@@ -43,7 +44,7 @@ const CW721BaseInstantiatePage: NextPage = () => {
     id: 'minter-address',
     name: 'minterAddress',
     title: 'Minter Address',
-    placeholder: 'juno1234567890abcdefghijklmnopqrstuvwxyz...',
+    placeholder: getPlaceholderAddress(),
   })
 
   const { data, isLoading, mutate } = useMutation(
@@ -58,7 +59,12 @@ const CW721BaseInstantiatePage: NextPage = () => {
         minter: minterState.value,
       }
       return toast.promise(
-        contract.instantiate(CW721_BASE_CODE_ID, msg, 'JunoTools CW721 Base Contract', wallet.address),
+        contract.instantiate(
+          CW721_BASE_CODE_ID,
+          msg,
+          `${process.env.NEXT_PUBLIC_WEBSITE_NAME} CW721 Base Contract`,
+          wallet.address,
+        ),
         {
           loading: 'Instantiating contract...',
           error: 'Instantiation failed!',

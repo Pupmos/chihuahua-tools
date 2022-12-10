@@ -1,5 +1,6 @@
 import { FormControl } from 'components/FormControl'
 import { StyledInput } from 'components/forms/StyledInput'
+import { getConfig } from 'config'
 import type { ComponentPropsWithRef } from 'react'
 import { forwardRef } from 'react'
 
@@ -32,7 +33,10 @@ export const AddressInput = forwardRef<HTMLInputElement, FormInputProps>(
     return (
       <FormInput
         {...props}
-        placeholder={props.placeholder || 'juno1234567890abcdefghijklmnopqrstuvwxyz...'}
+        placeholder={
+          props.placeholder ||
+          `${getConfig(process.env.NEXT_PUBLIC_NETWORK).addressPrefix}1234567890abcdefghijklmnopqrstuvwxyz...`
+        }
         ref={ref}
         type="text"
       />
@@ -46,7 +50,10 @@ export const ValidatorAddressInput = forwardRef<HTMLInputElement, FormInputProps
     return (
       <FormInput
         {...props}
-        placeholder={props.placeholder || 'junovaloper1234567890abcdefghijklmnopqrstuvwxyz...'}
+        placeholder={
+          props.placeholder ||
+          `${getConfig(process.env.NEXT_PUBLIC_NETWORK).addressPrefix}valoper1234567890abcdefghijklmnopqrstuvwxyz...`
+        }
         ref={ref}
         type="text"
       />
