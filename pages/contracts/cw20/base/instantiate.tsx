@@ -16,6 +16,7 @@ import type { InstantiateResponse } from 'contracts/cw1/subkeys'
 import type { NextPage } from 'next'
 import { NextSeo } from 'next-seo'
 import type { FormEvent } from 'react'
+import { useRef } from 'react'
 import { toast } from 'react-hot-toast'
 import { FaAsterisk } from 'react-icons/fa'
 import { useMutation } from 'react-query'
@@ -31,7 +32,7 @@ const CW20InstantiatePage: NextPage = () => {
     id: 'name',
     name: 'name',
     title: 'Name',
-    placeholder: 'My Awesome CW20 Contract',
+    placeholder: 'My Awesome CW20 Token',
   })
 
   const symbolState = useInputState({
@@ -93,6 +94,8 @@ const CW20InstantiatePage: NextPage = () => {
     placeholder: 'https://example.com/image.jpg',
   })
 
+  const formRef = useRef<HTMLFormElement | null>(null)
+
   const shouldSubmit = [nameState.value, symbolState.value].every(Boolean)
 
   const { data, isLoading, mutate } = useMutation(
@@ -129,6 +132,37 @@ const CW20InstantiatePage: NextPage = () => {
       })
     },
     {
+      onSuccess: () => {
+        setTimeout(() => {
+          document.getElementById('layout-scroll-container')?.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          })
+        }, 250)
+      },
+      onError: (error) => {
+        toast.error(String(error))
+      },
+    },
+  )
+
+  const addTokenToWalletMutation = useMutation(
+    async (event: FormEvent): Promise<void> => {
+      event.preventDefault()
+      if (!data?.contractAddress) {
+        throw new Error('No contract address found')
+      }
+      if (!wallet) {
+        throw new Error('Wallet not connected')
+      }
+      return toast.promise(wallet.suggestToken(data.contractAddress), {
+        loading: 'Adding token to wallet...',
+        error: 'Failed to add token to wallet!',
+        success: 'Token added to wallet!',
+      })
+    },
+    {
       onError: (error) => {
         toast.error(String(error))
       },
@@ -138,7 +172,7 @@ const CW20InstantiatePage: NextPage = () => {
   const txHash = data?.transactionHash
 
   return (
-    <form className="py-6 px-12 space-y-4" onSubmit={mutate}>
+    <form className="py-6 px-12 space-y-4" onSubmit={mutate} ref={formRef}>
       <NextSeo title="Instantiate CW20 Token" />
       <ContractPageHeader
         description="CW20 Base is a specification for fungible tokens based on CosmWasm."
@@ -154,6 +188,14 @@ const CW20InstantiatePage: NextPage = () => {
         </Alert>
         <JsonPreview content={data} title="Transaction Result" />
         <br />
+        <Button
+          id="#add-token-to-wallet"
+          isDisabled={!wallet.address}
+          isLoading={addTokenToWalletMutation.isLoading}
+          onClick={addTokenToWalletMutation.mutate}
+        >
+          Add Token to Wallet 🐾
+        </Button>
       </Conditional>
 
       <FormGroup subtitle="Basic information about your new contract" title="Contract Details">

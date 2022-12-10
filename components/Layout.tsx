@@ -22,6 +22,7 @@ export const Layout = ({ children, metadata = {} }: LayoutProps) => {
 
       <DefaultAppSeo />
 
+      {/* <BackgroundSwirl className="fixed inset-0 pt-64 " height={global.innerHeight} width={global.innerWidth} /> */}
       {/* plumbus confetti */}
       <div className="fixed inset-0 -z-10 bg-plumbus-70 pointer-events-none juno-gradient-bg_">
         {/* <img alt="plumbus confetti" className="fixed top-0 right-0 h-[calc(100vh+180px)]" src="/confetti.svg" /> */}
@@ -30,7 +31,7 @@ export const Layout = ({ children, metadata = {} }: LayoutProps) => {
       {/* actual layout container */}
       <div className="hidden sm:flex">
         <Sidebar />
-        <div className="overflow-auto relative flex-grow h-screen no-scrollbar">
+        <div className="overflow-auto relative flex-grow h-screen no-scrollbar" id="layout-scroll-container">
           <main
             className={clsx('mx-auto max-w-7xl', {
               'flex flex-col justify-center items-center':

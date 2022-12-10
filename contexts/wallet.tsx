@@ -38,6 +38,8 @@ export interface KeplrWalletStore extends State {
   /** https://github.com/CosmosContracts/juno-tools/blob/41c256f71d2b8b55fade12fae3b8c6a493a1e3ce/services/keplr.ts#L50-L62 */
   readonly connect: (walletChange?: boolean | 'focus') => Promise<void>
 
+  readonly suggestToken: (address: string) => Promise<void>
+
   /** @see https://github.com/CosmosContracts/juno-tools/blob/41c256f71d2b8b55fade12fae3b8c6a493a1e3ce/services/keplr.ts#L45-L48 */
   readonly disconnect: () => void | Promise<void>
 
@@ -99,6 +101,14 @@ export const useWalletStore = create(
       } catch (err: any) {
         toast.error(err?.message)
         set({ initializing: false })
+      }
+    },
+    suggestToken: async (contractAddress: string) => {
+      try {
+        const { config, init } = get()
+        await suggestKeplrToken(config, contractAddress)
+      } catch (err: any) {
+        toast.error(err?.message)
       }
     },
     disconnect: () => {
@@ -305,4 +315,19 @@ const loadKeplrWallet = async (config: AppConfig) => {
   })
 
   return signer
+}
+
+/**
+ * Function to add token to keplr wallet.
+ *
+ * @param config - Application configuration
+ */
+const suggestKeplrToken = async (config: AppConfig, contractAddress: string) => {
+  if (!window.getOfflineSigner || !window.keplr || !window.getOfflineSignerAuto) {
+    throw new Error('Keplr extension is not available')
+  }
+
+  await window.keplr.suggestToken(config.chainId, contractAddress)
+
+  return true
 }

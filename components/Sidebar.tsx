@@ -13,7 +13,7 @@ const routes = [
   // { text: 'Upload Contract', href: `/contracts/upload` },
   // { text: 'CW1 Subkeys', href: `/contracts/cw1/subkeys` },
   { text: 'Mint Tokens', href: `/contracts/cw20/base` },
-  { text: 'Airdrop Tokens', href: `/airdrops` },
+  // { text: 'Airdrop Tokens', href: `/airdrops` },
   // { text: 'Mint NFT', href: `/contracts/cw721/base` },
   { text: 'Sign and Verify', href: `/sign-verify` },
   // { text: 'Token Faucet', href: `/request-tokens` },
