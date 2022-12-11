@@ -1,6 +1,5 @@
 <!-- markdownlint-disable MD033 MD034 MD036 MD041 -->
 
-![chihuahua-tools](./public/social.png)
 
 # chihuahua-tools
 
