@@ -16,7 +16,7 @@ export const DefaultAppSeo = () => {
         description: meta.description,
         type: 'website',
         site_name: meta.name,
-        images: [{ url: `${WEBSITE_URL}/social.png` }],
+        images: [{ url: `${WEBSITE_URL}/social.png?v=1` }],
       }}
       titleTemplate={`%s | ${meta.name}`}
       twitter={{
