@@ -1,11 +1,11 @@
 <!-- markdownlint-disable MD033 MD034 MD036 MD041 -->
 
-![juno-tools](./public/social.png)
+![chihuahua-tools](./public/social.png)
 
-# juno-tools
+# chihuahua-tools
 
-- Mainnet website: https://juno.tools
-- Testnet website: https://test.juno.tools
+- Mainnet website: https://chihuahua.tools
+- Testnet website: https://test.chihuahua.tools
 
 ## Prerequisites
 
@@ -24,8 +24,8 @@
 
 ```sh
 # clone repository
-git clone https://github.com/CosmosContracts/juno-tools.git
-cd juno-tools
+git clone https://github.com/ChihuahuaChain/chihuahua-tools.git
+cd chihuahua-tools
 
 # install dependencies
 yarn install
@@ -42,17 +42,17 @@ yarn lint
 
 ## References
 
-- https://docs.juno.tools
-- https://docs.juno.tools/docs/dashboards/airdrop/introduction
-- https://docs.juno.tools/docs/dashboards/airdrop/guide
-- https://docs.juno.tools/docs/dashboards/cw-1/subkeys/introduction
-- https://docs.juno.tools/docs/dashboards/cw-20/base/introduction
-- https://docs.juno.tools/docs/dashboards/cw-721/base/introduction
+- https://docs.chihuahua.tools
+- https://docs.chihuahua.tools/docs/dashboards/airdrop/introduction
+- https://docs.chihuahua.tools/docs/dashboards/airdrop/guide
+- https://docs.chihuahua.tools/docs/dashboards/cw-1/subkeys/introduction
+- https://docs.chihuahua.tools/docs/dashboards/cw-20/base/introduction
+- https://docs.chihuahua.tools/docs/dashboards/cw-721/base/introduction
 
 ## Questions
 
-- [Discord](https://discord.gg/Juno)
-- [Telegram](https://t.me/JunoNetwork)
-- [Twitter](https://twitter.com/junotools)
+- [Discord](https://discord.gg/Chihuahua)
+- [Telegram](https://t.me/chihuahua_cosmos)
+- [Twitter](https://twitter.com/ChihuahuaChain)
 
 <img src="./public/icon.png" height="96" align="right" />
